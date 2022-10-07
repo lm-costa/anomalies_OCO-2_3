@@ -1,5 +1,5 @@
 
-# **Combining OCO-2 and OCO-3 for Fire Foci analysis **
+# **Combining OCO-2 and OCO-3 for Fire Foci analysis**
 
 ## *Costa, L.M. et al*
 
