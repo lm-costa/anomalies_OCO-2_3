@@ -158,8 +158,6 @@ br |> ggplot2::ggplot()+
 
 ### Analyzing uncertanty
 
-color <- c("OCO-2" = "dark red", "Petal Length" = "red", "Petal Width" = "orange")
-
 oco2 |>
   dplyr::group_by(date) |>
   dplyr::summarise(uncertanty=mean(uncertanty)) |>
