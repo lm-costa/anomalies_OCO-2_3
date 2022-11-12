@@ -105,7 +105,7 @@ xco2 <- xco2 |>
 
 ### export the data set for arc gis and add the biome column,
 ### than put the new table in 'data' folder
-### You can Clean the enviroment
+### You can Clean the environment
 
 source('fun/mapa.R')
 source('fun/out.R')
@@ -127,7 +127,6 @@ oco3 <- read.csv('data/mission/data_bioma.csv') |>
 
 ##### Coverage
 
-## oco-2
 br |>
   ggplot2::ggplot()+
   ggplot2::geom_sf(fill="white", color="black",
@@ -138,23 +137,23 @@ br |>
                           year=lubridate::year(date)
                         ) |>
                         dplyr::filter(mes==3 & year == 2020),
-                      ggplot2::aes(x=lon,y=lat))+
-  ggplot2::theme(axis.text = ggplot2::element_text(color='black'))+
-  tema_mapa()
-
-## oco-3
-br |> ggplot2::ggplot()+
-  ggplot2::geom_sf(fill="white", color="black",
-                   size=.15, show.legend = FALSE)+
+                      ggplot2::aes(x=lon,y=lat,color='OCO-2'),
+                      alpha=.2)+
   ggplot2::geom_point(data = oco3 |>
                         dplyr::mutate(
                           mes=lubridate::month(date),
                           year=lubridate::year(date)
                         ) |>
                         dplyr::filter(mes==3 & year == 2020),
-                      ggplot2::aes(x=lon,y=lat))+
+                      ggplot2::aes(x=lon,y=lat,color='OCO-3'),
+                      alpha=.2)+
+  ggplot2::scale_color_manual(name='Mission',
+                              breaks=c('OCO-2','OCO-3'),
+                              values=c('OCO-2'='red', 'OCO-3'='dark blue'))+
   ggplot2::theme(axis.text = ggplot2::element_text(color='black'))+
   tema_mapa()
+
+
 
 ### Analyzing uncertanty
 
