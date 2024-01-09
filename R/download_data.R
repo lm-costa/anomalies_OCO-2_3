@@ -1,4 +1,4 @@
-source('r/functions.r')
+source('fun/functions.r')
 
 
 #OCO-2

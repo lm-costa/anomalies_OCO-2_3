@@ -1,5 +1,5 @@
 # my functions
-source('r/functions.R')
+source('fun/functions.R')
 
 #OCO-2
 ####
@@ -12,7 +12,7 @@ files_names <- list.files("data-raw/OCO-2/",
 xco2 <- purrr::map_df(files_names,my_ncdf4_extractor) |>
   dplyr::mutate(
     date = as.Date.POSIXct(time)
-  ) |> 
+  ) |>
   dplyr::filter(
     quality_flag==0
   )
@@ -34,7 +34,7 @@ files_names <- list.files("data-raw/OCO-3/",
 xco2 <- purrr::map_df(files_names,my_ncdf4_extractor) |>
   dplyr::mutate(
     date = as.Date.POSIXct(time)
-  ) |> 
+  ) |>
   dplyr::filter(
     quality_flag==0
   )
